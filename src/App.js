@@ -30,7 +30,7 @@ function WebsiteHead(props) {
 function SettingsToggle(props) {
     const [count, setCount] = useState(0);
     useEffect(() => {
-        document.title = 'You clicked ${count} times';
+        console.log = 'SettingsToggle clicked ${count} times';
     });
 
     const [isOpen, setOpen] = useState(null);
@@ -40,4 +40,8 @@ function SettingsToggle(props) {
             Settings.Close(props.compart.sett,handleStatusChange);
         };
     });
+
+    function handleStatusChange(status){
+        setOpen(status.isOnline)
+    }
 }
