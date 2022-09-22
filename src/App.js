@@ -33,15 +33,19 @@ function SettingsToggle(props) {
         console.log = 'SettingsToggle clicked ${count} times';
     });
 
-    const [isOpen, setOpen] = useState(null);
+    const [isTrue, setTrue] = useState(null);
     useEffect(() => {
-        Settings.Open(props.compart.sett,handleStatusChange)
+        Settings.setTrue(props.compart.sett,handleStatusChange)
         return() => {
-            Settings.Close(props.compart.sett,handleStatusChange);
+            Settings.setFalse(props.compart.sett,handleStatusChange);
         };
     });
 
     function handleStatusChange(status){
-        setOpen(status.isOnline)
+        setTrue(status.isTrue)
     }
+}
+
+function Settings(props){
+    
 }
