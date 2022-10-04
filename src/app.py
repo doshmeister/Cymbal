@@ -1,5 +1,6 @@
 from kivy.app import App
 from kivy.uix.widget import Widget
 
-def balls():
-    pass
+class Cymbal(App):
+    def build(self):
+        return Label(text="Hello World")
