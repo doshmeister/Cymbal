@@ -1,6 +1,8 @@
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.lang.builder import Builder
+import time
+from sys import console
 
 #Kivy  Markup
 Builder.load_string("""
@@ -11,23 +13,21 @@ Builder.load_string("""
         Rectangle:
             size: self.size
             pos: self.pos
-    id: MapScreen
+    id: MainScreen
     BoxLayout:
         focus: True
         orientation: "horizontal"
         MainHeader:
             InfoLabel:
                 text: "Cymbal AIS Viewer"
+                
         
    """)
 
-
-class CymbalWidget(Widget):
-    pass
-
 class MainScreen(App):
     def build(self):
-        return CymbalWidget()
+        self.on_touch_down = False
+        
 
     def on_touch_down(self,touch):
         if super().on_touch_down(touch):
@@ -38,5 +38,8 @@ class MainScreen(App):
 
 
 if __name__ == "__main__":
-    MainScreen().run()
-        
+    try:
+        MainScreen().run()
+        start = time.perf_counter()
+    except:
+        console.log("MainScreen Class failed to run.")
