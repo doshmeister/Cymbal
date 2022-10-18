@@ -1,0 +1,16 @@
+#:kivy
+<MainScreen>:
+    canvas.before:
+        Color:
+            rgba: .5,.5,.5,.5
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    id: MainScreen
+    BoxLayout:
+        focus: True
+        orientation: "horizontal"
+        MainHeader:
+            InfoLabel:
+                text: "Cymbal AIS Viewer"
+                

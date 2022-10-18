@@ -14,30 +14,18 @@ logging.basicConfig(format = "%(asctime)s - %(message)s",level=logging.DEBUG)
 logging.basicConfig(format = "%(asctime)s - %(message)s",level=logging.WARNING)
 logging.basicConfig(format = "%(asctime)s - %(message)s",level=logging.ERROR)
 logging.basicConfig(format = "%(asctime)s - %(message)s",level=logging.CRITICAL)
-#Kivy  Markup
-Builder.load_string("""
-<MainScreen>:
-    canvas.before:
-        Color:
-            rgba: .5,.5,.5,.5
-        Rectangle:
-            size: self.size
-            pos: self.pos
-    id: MainScreen
-    BoxLayout:
-        focus: True
-        orientation: "horizontal"
-        MainHeader:
-            InfoLabel:
-                text: "Cymbal AIS Viewer"
-                
-        
-   """)
 
-class MainScreen(App):
+class MainScreen(Widget):
+    pass
+
+class ship(Widget):
+    pass
+    #def move(self):
+        #self.pos = "ais viewer api"
+
+class CymbalApp(App):
     def build(self):
-        self.on_touch_down = False
-        
+        return MainScreen()
 
     def on_touch_down(self,touch):
         if super().on_touch_down(touch):
@@ -50,8 +38,8 @@ class MainScreen(App):
 
 if __name__ == "__main__":
     try:
-        MainScreen().run()
+        CymbalApp().run()
         start = time.perf_counter()
     except Exception as e:
-        logger.exception("Exception occurred")
+        logger.critical("Cymbal class failed to start")
         pass
