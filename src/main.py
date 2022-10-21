@@ -11,7 +11,7 @@ import logging
 
 #Sets icon in top left
 #Config.window_icon = "data/icon.png"
-#Sets input sources as mouse and disables touchscreen functionality (this prevents accidental inputs on trackpad)
+#Sets input sources as mouse and disables touchscreen functionality (this helps prevent accidental inputs on trackpad)
 #Config.set("input", "mouse", "mouse,disable_multitouch")
 
 logger = logging.getLogger("logger")
@@ -44,5 +44,5 @@ if __name__ == "__main__":
     try:
         CymbalApp().run()
     except Exception as e:
-        logger.critical("Cymbal class failed to start")
+        logger.critical("Cymbal class failed to start", exc_info = True)
         exit
