@@ -7,12 +7,19 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.button import Button
 from kivy.uix.widget import Widget
 
-class MyGrid(Widget):
-    pass
+class MyWidget(Widget):
+    def redraw(self,args):
+        self.bg_rect.size = self.size
+        self.bg_rect.pos = self.pos
 
-class MyApp(App):
+class CymbalApp(App):
     def build(self):
-        return MyGrid()
+        return MyWidget()
+
+widget = Widget()
+with widget.canvas:
+    widget.bg_rect = Rectangle(source="thefleshcapturesyourmind.jpg", pos=self.pos,size=self.size)
+widget.bind(pos=redraw,size=redraw)
 
 if __name__=="__main__":
-    MyApp().run()
+    CymbalApp().run()
