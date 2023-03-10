@@ -37,10 +37,10 @@ class Screen(BoxLayout):
         
 
 
-class TouchApp(App):
+class MainApp(App):
     def build(self):
         return Screen()
 
 
 if __name__ == "__main__":
-    TouchApp().run()
+    MainApp().run()

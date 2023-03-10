@@ -11,10 +11,11 @@ kv = Builder.load_string("""
     BoxLayout:
         orientation: 'vertical'
         Label:
-            text: 'Setting Screen'
+            text: 'Settings'
         Button:
             id: btn
             text: 'Exit'
+            size_hint: 0.2,0.2
             on_release: app.stop()
 """)
 
