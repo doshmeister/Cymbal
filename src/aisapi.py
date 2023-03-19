@@ -4,6 +4,7 @@ import json
 from datetime import datetime, timezone
 #from main import
 import requests
+#import mysql.connector
 async def connect_ais_stream():
     try:
         async with websockets.connect("wss://stream.aisstream.io/v0/stream") as websocket:
@@ -20,12 +21,13 @@ async def connect_ais_stream():
                 # the message parameter contains a key of the message type which contains the message itself
                     ais_message = message['Message']['PositionReport']
                     print(f"[{datetime.now(timezone.utc)}] ShipId: {ais_message['UserID']} Latitude: {ais_message['Latitude']} Longitude: {ais_message['Longitude']}  Bearing: {ais_message['TrueHeading']}")
+                    #db = 
     except:
         return "Failed to Connect websocket."
 
 
 
-async def call_staticshipdata(ShipId):
+async def call_ship_static_data():
 #*** review code and 
     # Set up API endpoint and parameters
     #api_endpoint = "wss://stream.aisstream.io/v0/stream"
@@ -39,15 +41,17 @@ async def call_staticshipdata(ShipId):
 
             async for message_json in websocket:
                 message = json.loads(message_json)
-                message_UserId = message["UserId"]
+                message_type = message["MessageType"]
     
-                if message_UserId == dfsdf:
+                if message_type == "ShipStaticData":
                     ais_message = message['Message']['ShipStaticData']
                     print(f"[{datetime.now(timezone.utc)}] CallSign: {ais_message['CallSign']} Name: {ais_message['Name']} Type: {ais_message['Type']}")
-   
     except:
         return "Failed to Connect websocket"
 
+#def store_ship_static_data()
+
 if __name__ == "__main__":
     #asyncio.run(asyncio.run(connect_ais_stream()))
-    asyncio.run(asyncio.run(call_staticshipdata(257069200)))
+    asyncio.run(asyncio.run(call_ship_static_data()))
+
