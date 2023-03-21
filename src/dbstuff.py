@@ -1,6 +1,7 @@
 import requests
 import json
 import mysql.connector
+from search import interpolationSearch
 
 
 # Connect to MySQL database
