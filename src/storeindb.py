@@ -2,20 +2,13 @@ import requests
 import json
 import mysql.connector
 
-# API endpoint and parameters
-url = 'https://api.aistream.com/positionreport'
-params = {'key': 'your_api_key', 'ship_id': '12345'}
-
-# Get positionreport data from API
-response = requests.get(url, params=params)
-data = json.loads(response.text)
 
 # Connect to MySQL database
 db = mysql.connector.connect(
   host="localhost",
-  user="yourusername",
-  password="yourpassword",
-  database="yourdatabase"
+  user="root",
+  password="Jdoshi123*",
+  database="MySQL80"
 )
 
 # Prepare SQL statement
@@ -38,19 +31,13 @@ for position in data:
 db.close()
 
 # API endpoint and parameters
-url = 'https://api.aistream.com/shipstatic'
-params = {'key': 'your_api_key', 'ship_id': '12345'}
-
-# Get shipstatic data from API
-response = requests.get(url, params=params)
-data = json.loads(response.text)
 
 # Connect to MySQL database
 db = mysql.connector.connect(
   host="localhost",
-  user="yourusername",
-  password="yourpassword",
-  database="yourdatabase"
+  user="root",
+  password="Jdoshi123*",
+  database="MySQL80"
 )
 
 # Prepare SQL statement
